@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def show # /articles/id -> get | DISPLAY OBJECT
-    @article = Article.find(id)
+    @article = Article.find(params[:id])
   end
 
   def new # /articles/new -> get | GETS THE NEW FORM
@@ -17,21 +17,31 @@ class ArticlesController < ApplicationController
     #@article.body = params[:body]
 
     if @article.save
-      puts "saved"
       redirect_to articles_path
     else
-      puts "not saved"
       render :new
     end
   end
   
   def edit # /articles/:id -> get | GETS THE EDIT FORM 
+    @article = Article.find(params[:id])
+    render :edit
   end
   
   def update # /articles/:id -> post, patch, put | UPDATES THE OBJECT
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to articles_path
+    else
+      render :edit
+    end
   end
   
-  def delete # /articles/:id -> delete, post | DELETES THE OBJECT 
+  def delete # /articles/:id -> delete, post | DELETES THE OBJECT
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path
   end
 
   private
