@@ -6,10 +6,11 @@
             <th>Name</th>
             <th>Body</th>
             <th>Author</th>
-            <th><%= link_to 'New Article', new_article_path%></th>
         </tr>
     </thead>
     <tbody>
         <%= render "article" %>
     </tbody>
 </table>
+<button class ="border font-bold border-solid border-blue-400"> <%= link_to 'Users', users_path%> </button> 
+<button class ="border font-bold border-solid border-blue-400"><%= link_to 'New Article', new_article_path%></button>

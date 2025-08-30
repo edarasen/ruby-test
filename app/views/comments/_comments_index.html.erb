@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+        <% # if comment.id == articleid %>
+            <tr>
+                <td><%= comment.id %></td>
+                <td><%= comment.username %></td>
+                <td><%= comment.body %></td>
+                <td><%= link_to 'Edit', edit_comment_path(comment.id)%></td>
+                <td><%= link_to 'Delete', delete_comment_path(comment.id), data: { "turbo-method": :delete }%></td>
+            </tr>
+        <%# end%>
+    <% end %>
+  </tbody>
+</table>

@@ -16,3 +16,5 @@
         </tr>
     </tbody>
 </table>
+<button class ="border font-bold border-solid border-blue-400"><%= link_to 'Back to Articles', articles_path%></button>
+<%= render 'comments/comments_index', articleid: @article.id%>

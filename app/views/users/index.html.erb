@@ -1,0 +1,21 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+          <tr>
+              <td><%= user.id %></td>
+              <td><%= user.username %></td>
+              <td><%= link_to 'Show', user_path(user.id)%></td>
+              <td><%= link_to 'Edit', edit_user_path(user.id)%></td>
+              <td><%= link_to 'Delete', delete_user_path(user.id), data: { "turbo-method": :delete }%></td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
+<button class ="border text-red-400 border-solid border-red-400"><%= link_to 'New User', new_user_path%></button>
+<button class ="border font-bold border-solid border-blue-400"><%= link_to 'Articles', articles_path%></button>

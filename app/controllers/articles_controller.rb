@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 
   def show # /articles/id -> get | DISPLAY OBJECT
     @article = Article.find(params[:id])
+    @comments = Comment.all
   end
 
   def new # /articles/new -> get | GETS THE NEW FORM

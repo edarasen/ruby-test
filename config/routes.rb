@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root 'articles#index'
 
   # database action 'path' => model method
   get '/articles' => 'articles#index'
@@ -20,4 +21,13 @@ Rails.application.routes.draw do
   get '/articles/:id/edit' => 'articles#edit', as: 'edit_article'
   post '/articles/:id' => 'articles#update', as:'update_article'
   delete '/articles/:id' => 'articles#delete', as: 'delete_article'
+
+  get '/users' => 'users#index'
+  get '/users/new' => 'users#new', as: "new_user"
+  post '/users/' => 'users#create', as: "create_user"
+  get '/user/:id' => 'users#show', as:'user'
+  get '/user/:id/edit' => 'users#edit', as: 'edit_user'
+  post '/user/:id' => 'users#update', as:'update_user'
+  delete '/user/:id' => 'users#delete', as: 'delete_user'
+
 end
